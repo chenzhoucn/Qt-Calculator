@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="calculator.qrc">
+    <normaloff>:/imgsrc/winIcon.svg</normaloff>:/imgsrc/winIcon.svg</iconset>
+  </property>
   <property name="windowOpacity">
    <double>0.950000000000000</double>
   </property>
@@ -88,7 +92,7 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="resultLabel">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -105,7 +109,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_2">
+       <widget class="autoLabel" name="curLabel">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -366,6 +370,9 @@ QPushButton {
     border-radius: 6px;
 background-color: rgb(249, 249, 249)
 }
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))
+}
 QPushButton:flat {
     border: none; /* no border for a flat push button */
 }
@@ -410,6 +417,9 @@ QPushButton {
     border: 2px solid #8f8f91;
     border-radius: 6px;
 background-color: rgb(249, 249, 249)
+}
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))
 }
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -456,13 +466,16 @@ QPushButton {
     border-radius: 6px;
 background-color: rgb(249, 249, 249)
 }
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))
+}
 QPushButton:flat {
     border: none; /* no border for a flat push button */
 }
 </string>
         </property>
         <property name="text">
-         <string>C</string>
+         <string>CL</string>
         </property>
         <property name="autoDefault">
          <bool>false</bool>
@@ -501,13 +514,16 @@ QPushButton {
     border-radius: 6px;
 background-color: rgb(249, 249, 249)
 }
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))
+}
 QPushButton:flat {
     border: none; /* no border for a flat push button */
 }
 </string>
         </property>
         <property name="text">
-         <string>CL</string>
+         <string>BC</string>
         </property>
         <property name="autoDefault">
          <bool>false</bool>
@@ -545,6 +561,9 @@ QPushButton {
     border: 2px solid #8f8f91;
     border-radius: 6px;
 background-color: rgb(249, 249, 249)
+}
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))
 }
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -591,6 +610,9 @@ QPushButton {
     border-radius: 6px;
 background-color: rgb(249, 249, 249)
 }
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))
+}
 QPushButton:flat {
     border: none; /* no border for a flat push button */
 }
@@ -636,6 +658,9 @@ QPushButton {
     border-radius: 6px;
 background-color: rgb(249, 249, 249)
 }
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))
+}
 QPushButton:flat {
     border: none; /* no border for a flat push button */
 }
@@ -656,7 +681,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="1" column="3">
-       <widget class="QPushButton" name="pushButton_26">
+       <widget class="QPushButton" name="btnDiv">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -680,6 +705,9 @@ QPushButton {
     border: 2px solid #8f8f91;
     border-radius: 6px;
 background-color: rgb(249, 249, 249)
+}
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))
 }
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -701,7 +729,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="2" column="0">
-       <widget class="QPushButton" name="pushButton_13">
+       <widget class="QPushButton" name="btnNUM7">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -725,7 +753,10 @@ QPushButton:flat {
     border-radius: 6px;
 background-color: rgb(255, 255, 255);
 }
-
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
 
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -747,7 +778,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QPushButton" name="pushButton_21">
+       <widget class="QPushButton" name="btnNUM8">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -771,7 +802,10 @@ QPushButton:flat {
     border-radius: 6px;
 background-color: rgb(255, 255, 255);
 }
-
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
 
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -793,7 +827,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QPushButton" name="pushButton_27">
+       <widget class="QPushButton" name="btnNUM9">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -817,7 +851,10 @@ QPushButton:flat {
     border-radius: 6px;
 background-color: rgb(255, 255, 255);
 }
-
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
 
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -839,7 +876,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="2" column="3">
-       <widget class="QPushButton" name="pushButton_33">
+       <widget class="QPushButton" name="btnMul">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -863,6 +900,9 @@ QPushButton {
     border: 2px solid #8f8f91;
     border-radius: 6px;
 background-color: rgb(249, 249, 249)
+}
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))
 }
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -884,7 +924,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="3" column="0">
-       <widget class="QPushButton" name="pushButton_14">
+       <widget class="QPushButton" name="btnNUM4">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -908,7 +948,10 @@ QPushButton:flat {
     border-radius: 6px;
 background-color: rgb(255, 255, 255);
 }
-
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
 
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -927,7 +970,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QPushButton" name="pushButton_22">
+       <widget class="QPushButton" name="btnNUM5">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -951,7 +994,10 @@ QPushButton:flat {
     border-radius: 6px;
 background-color: rgb(255, 255, 255);
 }
-
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
 
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -970,7 +1016,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QPushButton" name="pushButton_17">
+       <widget class="QPushButton" name="btnNUM6">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -994,7 +1040,10 @@ QPushButton:flat {
     border-radius: 6px;
 background-color: rgb(255, 255, 255);
 }
-
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
 
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -1013,7 +1062,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="3" column="3">
-       <widget class="QPushButton" name="pushButton_28">
+       <widget class="QPushButton" name="btnSub">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -1037,6 +1086,9 @@ QPushButton {
     border: 2px solid #8f8f91;
     border-radius: 6px;
 background-color: rgb(249, 249, 249)
+}
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))
 }
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -1055,7 +1107,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="4" column="0">
-       <widget class="QPushButton" name="pushButton_35">
+       <widget class="QPushButton" name="btnNUM1">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -1079,7 +1131,10 @@ QPushButton:flat {
     border-radius: 6px;
 background-color: rgb(255, 255, 255);
 }
-
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
 
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -1098,7 +1153,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="QPushButton" name="pushButton_29">
+       <widget class="QPushButton" name="btnNUM2">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -1122,7 +1177,10 @@ QPushButton:flat {
     border-radius: 6px;
 background-color: rgb(255, 255, 255);
 }
-
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
 
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -1141,7 +1199,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="4" column="2">
-       <widget class="QPushButton" name="pushButton_23">
+       <widget class="QPushButton" name="btnNUM3">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -1165,7 +1223,10 @@ QPushButton:flat {
     border-radius: 6px;
 background-color: rgb(255, 255, 255);
 }
-
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
 
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -1184,7 +1245,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="4" column="3">
-       <widget class="QPushButton" name="pushButton_34">
+       <widget class="QPushButton" name="btnAdd">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -1208,6 +1269,9 @@ QPushButton {
     border: 2px solid #8f8f91;
     border-radius: 6px;
 background-color: rgb(249, 249, 249)
+}
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))
 }
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -1226,7 +1290,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="5" column="0">
-       <widget class="QPushButton" name="pushButton_18">
+       <widget class="QPushButton" name="btnSign">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -1250,7 +1314,10 @@ QPushButton:flat {
     border-radius: 6px;
 background-color: rgb(255, 255, 255);
 }
-
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
 
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -1269,7 +1336,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="QPushButton" name="pushButton_24">
+       <widget class="QPushButton" name="btnNUM0">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -1293,7 +1360,10 @@ QPushButton:flat {
     border-radius: 6px;
 background-color: rgb(255, 255, 255);
 }
-
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
 
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -1312,7 +1382,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="5" column="2">
-       <widget class="QPushButton" name="pushButton_30">
+       <widget class="QPushButton" name="btnPoint">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -1336,7 +1406,10 @@ QPushButton:flat {
     border-radius: 6px;
 background-color: rgb(255, 255, 255);
 }
-
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
 
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -1355,7 +1428,7 @@ QPushButton:flat {
        </widget>
       </item>
       <item row="5" column="3">
-       <widget class="QPushButton" name="pushButton_36">
+       <widget class="QPushButton" name="btnEq">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -1379,6 +1452,9 @@ QPushButton {
     border: 2px solid #8f8f91;
     border-radius: 6px;
 background-color: rgb(249, 249, 249)
+}
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))
 }
 QPushButton:flat {
     border: none; /* no border for a flat push button */
@@ -1402,6 +1478,17 @@ QPushButton:flat {
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>autoLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">autolabel.h</header>
+   <slots>
+    <signal>textChanged()</signal>
+    <slot>autoApped(QString)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="calculator.qrc"/>
  </resources>
