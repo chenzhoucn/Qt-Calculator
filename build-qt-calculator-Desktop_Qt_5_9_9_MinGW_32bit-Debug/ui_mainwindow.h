@@ -49,11 +49,11 @@ public:
     QGridLayout *gridLayout;
     QPushButton *pushButton_12;
     QPushButton *pushButton_19;
-    QPushButton *pushButton_25;
-    QPushButton *pushButton_31;
-    QPushButton *pushButton_15;
-    QPushButton *pushButton_20;
-    QPushButton *pushButton_32;
+    QPushButton *btnClean;
+    QPushButton *btnBack;
+    QPushButton *btnReciprocal;
+    QPushButton *btnSquare;
+    QPushButton *btnSqrt;
     QPushButton *btnDiv;
     QPushButton *btnNUM7;
     QPushButton *btnNUM8;
@@ -292,7 +292,7 @@ public:
 "QPushButton {\n"
 "    border: 2px solid #8f8f91;\n"
 "    border-radius: 6px;\n"
-"background-color: rgb(249, 249, 249)\n"
+"background-color:rgb(230, 230, 230)\n"
 "}\n"
 "QPushButton:pressed {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))\n"
@@ -316,7 +316,7 @@ public:
 "QPushButton {\n"
 "    border: 2px solid #8f8f91;\n"
 "    border-radius: 6px;\n"
-"background-color: rgb(249, 249, 249)\n"
+"background-color:rgb(230, 230, 230)\n"
 "}\n"
 "QPushButton:pressed {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))\n"
@@ -330,17 +330,17 @@ public:
 
         gridLayout->addWidget(pushButton_19, 0, 1, 1, 1);
 
-        pushButton_25 = new QPushButton(centralwidget);
-        pushButton_25->setObjectName(QStringLiteral("pushButton_25"));
-        sizePolicy2.setHeightForWidth(pushButton_25->sizePolicy().hasHeightForWidth());
-        pushButton_25->setSizePolicy(sizePolicy2);
-        pushButton_25->setFont(font4);
-        pushButton_25->setAutoFillBackground(false);
-        pushButton_25->setStyleSheet(QLatin1String("\n"
+        btnClean = new QPushButton(centralwidget);
+        btnClean->setObjectName(QStringLiteral("btnClean"));
+        sizePolicy2.setHeightForWidth(btnClean->sizePolicy().hasHeightForWidth());
+        btnClean->setSizePolicy(sizePolicy2);
+        btnClean->setFont(font4);
+        btnClean->setAutoFillBackground(false);
+        btnClean->setStyleSheet(QLatin1String("\n"
 "QPushButton {\n"
 "    border: 2px solid #8f8f91;\n"
 "    border-radius: 6px;\n"
-"background-color: rgb(249, 249, 249)\n"
+"background-color:rgb(230, 230, 230)\n"
 "}\n"
 "QPushButton:pressed {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))\n"
@@ -349,22 +349,22 @@ public:
 "    border: none; /* no border for a flat push button */\n"
 "}\n"
 ""));
-        pushButton_25->setAutoDefault(false);
-        pushButton_25->setFlat(true);
+        btnClean->setAutoDefault(false);
+        btnClean->setFlat(true);
 
-        gridLayout->addWidget(pushButton_25, 0, 2, 1, 1);
+        gridLayout->addWidget(btnClean, 0, 2, 1, 1);
 
-        pushButton_31 = new QPushButton(centralwidget);
-        pushButton_31->setObjectName(QStringLiteral("pushButton_31"));
-        sizePolicy2.setHeightForWidth(pushButton_31->sizePolicy().hasHeightForWidth());
-        pushButton_31->setSizePolicy(sizePolicy2);
-        pushButton_31->setFont(font4);
-        pushButton_31->setAutoFillBackground(false);
-        pushButton_31->setStyleSheet(QLatin1String("\n"
+        btnBack = new QPushButton(centralwidget);
+        btnBack->setObjectName(QStringLiteral("btnBack"));
+        sizePolicy2.setHeightForWidth(btnBack->sizePolicy().hasHeightForWidth());
+        btnBack->setSizePolicy(sizePolicy2);
+        btnBack->setFont(font4);
+        btnBack->setAutoFillBackground(false);
+        btnBack->setStyleSheet(QLatin1String("\n"
 "QPushButton {\n"
 "    border: 2px solid #8f8f91;\n"
 "    border-radius: 6px;\n"
-"background-color: rgb(249, 249, 249)\n"
+"background-color:rgb(230, 230, 230)\n"
 "}\n"
 "QPushButton:pressed {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))\n"
@@ -373,22 +373,22 @@ public:
 "    border: none; /* no border for a flat push button */\n"
 "}\n"
 ""));
-        pushButton_31->setAutoDefault(false);
-        pushButton_31->setFlat(true);
+        btnBack->setAutoDefault(false);
+        btnBack->setFlat(true);
 
-        gridLayout->addWidget(pushButton_31, 0, 3, 1, 1);
+        gridLayout->addWidget(btnBack, 0, 3, 1, 1);
 
-        pushButton_15 = new QPushButton(centralwidget);
-        pushButton_15->setObjectName(QStringLiteral("pushButton_15"));
-        sizePolicy2.setHeightForWidth(pushButton_15->sizePolicy().hasHeightForWidth());
-        pushButton_15->setSizePolicy(sizePolicy2);
-        pushButton_15->setFont(font4);
-        pushButton_15->setAutoFillBackground(false);
-        pushButton_15->setStyleSheet(QLatin1String("\n"
+        btnReciprocal = new QPushButton(centralwidget);
+        btnReciprocal->setObjectName(QStringLiteral("btnReciprocal"));
+        sizePolicy2.setHeightForWidth(btnReciprocal->sizePolicy().hasHeightForWidth());
+        btnReciprocal->setSizePolicy(sizePolicy2);
+        btnReciprocal->setFont(font4);
+        btnReciprocal->setAutoFillBackground(false);
+        btnReciprocal->setStyleSheet(QLatin1String("\n"
 "QPushButton {\n"
 "    border: 2px solid #8f8f91;\n"
 "    border-radius: 6px;\n"
-"background-color: rgb(249, 249, 249)\n"
+"background-color:rgb(230, 230, 230)\n"
 "}\n"
 "QPushButton:pressed {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))\n"
@@ -397,22 +397,22 @@ public:
 "    border: none; /* no border for a flat push button */\n"
 "}\n"
 ""));
-        pushButton_15->setAutoDefault(false);
-        pushButton_15->setFlat(true);
+        btnReciprocal->setAutoDefault(false);
+        btnReciprocal->setFlat(true);
 
-        gridLayout->addWidget(pushButton_15, 1, 0, 1, 1);
+        gridLayout->addWidget(btnReciprocal, 1, 0, 1, 1);
 
-        pushButton_20 = new QPushButton(centralwidget);
-        pushButton_20->setObjectName(QStringLiteral("pushButton_20"));
-        sizePolicy2.setHeightForWidth(pushButton_20->sizePolicy().hasHeightForWidth());
-        pushButton_20->setSizePolicy(sizePolicy2);
-        pushButton_20->setFont(font4);
-        pushButton_20->setAutoFillBackground(false);
-        pushButton_20->setStyleSheet(QLatin1String("\n"
+        btnSquare = new QPushButton(centralwidget);
+        btnSquare->setObjectName(QStringLiteral("btnSquare"));
+        sizePolicy2.setHeightForWidth(btnSquare->sizePolicy().hasHeightForWidth());
+        btnSquare->setSizePolicy(sizePolicy2);
+        btnSquare->setFont(font4);
+        btnSquare->setAutoFillBackground(false);
+        btnSquare->setStyleSheet(QLatin1String("\n"
 "QPushButton {\n"
 "    border: 2px solid #8f8f91;\n"
 "    border-radius: 6px;\n"
-"background-color: rgb(249, 249, 249)\n"
+"background-color:rgb(230, 230, 230)\n"
 "}\n"
 "QPushButton:pressed {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))\n"
@@ -421,22 +421,22 @@ public:
 "    border: none; /* no border for a flat push button */\n"
 "}\n"
 ""));
-        pushButton_20->setAutoDefault(false);
-        pushButton_20->setFlat(true);
+        btnSquare->setAutoDefault(false);
+        btnSquare->setFlat(true);
 
-        gridLayout->addWidget(pushButton_20, 1, 1, 1, 1);
+        gridLayout->addWidget(btnSquare, 1, 1, 1, 1);
 
-        pushButton_32 = new QPushButton(centralwidget);
-        pushButton_32->setObjectName(QStringLiteral("pushButton_32"));
-        sizePolicy2.setHeightForWidth(pushButton_32->sizePolicy().hasHeightForWidth());
-        pushButton_32->setSizePolicy(sizePolicy2);
-        pushButton_32->setFont(font4);
-        pushButton_32->setAutoFillBackground(false);
-        pushButton_32->setStyleSheet(QLatin1String("\n"
+        btnSqrt = new QPushButton(centralwidget);
+        btnSqrt->setObjectName(QStringLiteral("btnSqrt"));
+        sizePolicy2.setHeightForWidth(btnSqrt->sizePolicy().hasHeightForWidth());
+        btnSqrt->setSizePolicy(sizePolicy2);
+        btnSqrt->setFont(font4);
+        btnSqrt->setAutoFillBackground(false);
+        btnSqrt->setStyleSheet(QLatin1String("\n"
 "QPushButton {\n"
 "    border: 2px solid #8f8f91;\n"
 "    border-radius: 6px;\n"
-"background-color: rgb(249, 249, 249)\n"
+"background-color:rgb(230, 230, 230)\n"
 "}\n"
 "QPushButton:pressed {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))\n"
@@ -445,10 +445,10 @@ public:
 "    border: none; /* no border for a flat push button */\n"
 "}\n"
 ""));
-        pushButton_32->setAutoDefault(false);
-        pushButton_32->setFlat(true);
+        btnSqrt->setAutoDefault(false);
+        btnSqrt->setFlat(true);
 
-        gridLayout->addWidget(pushButton_32, 1, 2, 1, 1);
+        gridLayout->addWidget(btnSqrt, 1, 2, 1, 1);
 
         btnDiv = new QPushButton(centralwidget);
         btnDiv->setObjectName(QStringLiteral("btnDiv"));
@@ -460,7 +460,7 @@ public:
 "QPushButton {\n"
 "    border: 2px solid #8f8f91;\n"
 "    border-radius: 6px;\n"
-"background-color: rgb(249, 249, 249)\n"
+"background-color:rgb(230, 230, 230)\n"
 "}\n"
 "QPushButton:pressed {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))\n"
@@ -559,7 +559,7 @@ public:
 "QPushButton {\n"
 "    border: 2px solid #8f8f91;\n"
 "    border-radius: 6px;\n"
-"background-color: rgb(249, 249, 249)\n"
+"background-color:rgb(230, 230, 230)\n"
 "}\n"
 "QPushButton:pressed {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))\n"
@@ -655,7 +655,7 @@ public:
 "QPushButton {\n"
 "    border: 2px solid #8f8f91;\n"
 "    border-radius: 6px;\n"
-"background-color: rgb(249, 249, 249)\n"
+"background-color:rgb(230, 230, 230)\n"
 "}\n"
 "QPushButton:pressed {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))\n"
@@ -750,7 +750,7 @@ public:
 "QPushButton {\n"
 "    border: 2px solid #8f8f91;\n"
 "    border-radius: 6px;\n"
-"background-color: rgb(249, 249, 249)\n"
+"background-color:rgb(230, 230, 230)\n"
 "}\n"
 "QPushButton:pressed {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))\n"
@@ -845,7 +845,7 @@ public:
 "QPushButton {\n"
 "    border: 2px solid #8f8f91;\n"
 "    border-radius: 6px;\n"
-"background-color: rgb(249, 249, 249)\n"
+"background-color:rgb(230, 230, 230)\n"
 "}\n"
 "QPushButton:pressed {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(191, 191, 191, 255), stop:1 rgba(255, 255, 255, 255))\n"
@@ -870,11 +870,11 @@ public:
 
         pushButton_12->setDefault(false);
         pushButton_19->setDefault(false);
-        pushButton_25->setDefault(false);
-        pushButton_31->setDefault(false);
-        pushButton_15->setDefault(false);
-        pushButton_20->setDefault(false);
-        pushButton_32->setDefault(false);
+        btnClean->setDefault(false);
+        btnBack->setDefault(false);
+        btnReciprocal->setDefault(false);
+        btnSquare->setDefault(false);
+        btnSqrt->setDefault(false);
         btnDiv->setDefault(false);
         btnNUM7->setDefault(false);
         btnNUM8->setDefault(false);
@@ -912,11 +912,11 @@ public:
         pushButton_9->setText(QApplication::translate("MainWindow", "M^", Q_NULLPTR));
         pushButton_12->setText(QApplication::translate("MainWindow", "%", Q_NULLPTR));
         pushButton_19->setText(QApplication::translate("MainWindow", "CE", Q_NULLPTR));
-        pushButton_25->setText(QApplication::translate("MainWindow", "CL", Q_NULLPTR));
-        pushButton_31->setText(QApplication::translate("MainWindow", "BC", Q_NULLPTR));
-        pushButton_15->setText(QApplication::translate("MainWindow", "1/x", Q_NULLPTR));
-        pushButton_20->setText(QApplication::translate("MainWindow", "x^2", Q_NULLPTR));
-        pushButton_32->setText(QApplication::translate("MainWindow", "x^1/2", Q_NULLPTR));
+        btnClean->setText(QApplication::translate("MainWindow", "CL", Q_NULLPTR));
+        btnBack->setText(QApplication::translate("MainWindow", "BC", Q_NULLPTR));
+        btnReciprocal->setText(QApplication::translate("MainWindow", "1/x", Q_NULLPTR));
+        btnSquare->setText(QApplication::translate("MainWindow", "x^2", Q_NULLPTR));
+        btnSqrt->setText(QApplication::translate("MainWindow", "x^1/2", Q_NULLPTR));
         btnDiv->setText(QApplication::translate("MainWindow", "\303\267", Q_NULLPTR));
         btnNUM7->setText(QApplication::translate("MainWindow", "7", Q_NULLPTR));
         btnNUM8->setText(QApplication::translate("MainWindow", "8", Q_NULLPTR));
@@ -945,3 +945,5 @@ namespace Ui {
 QT_END_NAMESPACE
 
 #endif // UI_MAINWINDOW_H
+
+

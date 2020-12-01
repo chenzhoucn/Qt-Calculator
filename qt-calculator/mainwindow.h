@@ -46,14 +46,26 @@ private slots:
 
         void on_curLabel_textChanged();
 
+        void on_btnSign_clicked();
+
+        void on_btnPoint_clicked();
+
+
+
+        void on_btnSqrt_clicked();
+
+        void on_btnClean_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString calculationString;// 全局变量 记录用户的输入算式
         QString num1;// 双目运算符的 第一个 数
         QString num2;// 双目运算符的 第2个 数
+        QString curNum ; //记录当前的num
         double num1Double; //转化为整形
         double num2Double;//整形
-    char op ;//运算符 +-*/%
+
+        char op ;//运算符 +-*/%
 
 
 };
