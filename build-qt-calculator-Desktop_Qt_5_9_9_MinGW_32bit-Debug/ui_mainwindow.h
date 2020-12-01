@@ -902,8 +902,8 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
         label_3->setText(QApplication::translate("MainWindow", "Standard", Q_NULLPTR));
         pushButton->setText(QString());
-        resultLabel->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
-        curLabel->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
+        resultLabel->setText(QString());
+        curLabel->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
         pushButton_11->setText(QApplication::translate("MainWindow", "MC", Q_NULLPTR));
         pushButton_10->setText(QApplication::translate("MainWindow", "MR", Q_NULLPTR));
         pushButton_6->setText(QApplication::translate("MainWindow", "M+", Q_NULLPTR));
