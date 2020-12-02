@@ -58,6 +58,13 @@ private slots:
 
         void on_btnBack_clicked();
 
+        void on_btnSquare_clicked();
+
+        void on_btnReciprocal_clicked();
+
+
+        void on_btnMod_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString calculationString;// 全局变量 记录用户的输入算式
@@ -68,6 +75,7 @@ private:
         double num1Double; //转化为整形
         double num2Double;//整形
         QString op="//" ;//运算符 +-*/% 用//代表没有op
+        QString opS="//";//单目运算符 例如 ~ sqrt pow
         int opPos=-1;//运算符在算式的位置
 
 

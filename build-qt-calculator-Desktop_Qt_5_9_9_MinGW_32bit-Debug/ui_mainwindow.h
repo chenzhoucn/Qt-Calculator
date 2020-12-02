@@ -47,7 +47,7 @@ public:
     QPushButton *pushButton_8;
     QPushButton *pushButton_9;
     QGridLayout *gridLayout;
-    QPushButton *pushButton_12;
+    QPushButton *btnMod;
     QPushButton *pushButton_19;
     QPushButton *btnClean;
     QPushButton *btnBack;
@@ -116,6 +116,7 @@ public:
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/imgsrc/his.svg"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton->setIcon(icon1);
+        pushButton->setIconSize(QSize(32, 32));
         pushButton->setFlat(true);
 
         horizontalLayout_2->addWidget(pushButton);
@@ -274,21 +275,21 @@ public:
 
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        pushButton_12 = new QPushButton(centralwidget);
-        pushButton_12->setObjectName(QStringLiteral("pushButton_12"));
+        btnMod = new QPushButton(centralwidget);
+        btnMod->setObjectName(QStringLiteral("btnMod"));
         QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(pushButton_12->sizePolicy().hasHeightForWidth());
-        pushButton_12->setSizePolicy(sizePolicy2);
+        sizePolicy2.setHeightForWidth(btnMod->sizePolicy().hasHeightForWidth());
+        btnMod->setSizePolicy(sizePolicy2);
         QFont font4;
         font4.setFamily(QStringLiteral("Arial"));
         font4.setPointSize(14);
         font4.setBold(true);
         font4.setWeight(75);
-        pushButton_12->setFont(font4);
-        pushButton_12->setAutoFillBackground(false);
-        pushButton_12->setStyleSheet(QLatin1String("\n"
+        btnMod->setFont(font4);
+        btnMod->setAutoFillBackground(false);
+        btnMod->setStyleSheet(QLatin1String("\n"
 "QPushButton {\n"
 "    border: 2px solid #8f8f91;\n"
 "    border-radius: 6px;\n"
@@ -301,10 +302,10 @@ public:
 "    border: none; /* no border for a flat push button */\n"
 "}\n"
 ""));
-        pushButton_12->setAutoDefault(false);
-        pushButton_12->setFlat(true);
+        btnMod->setAutoDefault(false);
+        btnMod->setFlat(true);
 
-        gridLayout->addWidget(pushButton_12, 0, 0, 1, 1);
+        gridLayout->addWidget(btnMod, 0, 0, 1, 1);
 
         pushButton_19 = new QPushButton(centralwidget);
         pushButton_19->setObjectName(QStringLiteral("pushButton_19"));
@@ -868,7 +869,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        pushButton_12->setDefault(false);
+        btnMod->setDefault(false);
         pushButton_19->setDefault(false);
         btnClean->setDefault(false);
         btnBack->setDefault(false);
@@ -910,7 +911,7 @@ public:
         pushButton_7->setText(QApplication::translate("MainWindow", "M-", Q_NULLPTR));
         pushButton_8->setText(QApplication::translate("MainWindow", "MS", Q_NULLPTR));
         pushButton_9->setText(QApplication::translate("MainWindow", "M^", Q_NULLPTR));
-        pushButton_12->setText(QApplication::translate("MainWindow", "%", Q_NULLPTR));
+        btnMod->setText(QApplication::translate("MainWindow", "%", Q_NULLPTR));
         pushButton_19->setText(QApplication::translate("MainWindow", "CE", Q_NULLPTR));
         btnClean->setText(QApplication::translate("MainWindow", "CL", Q_NULLPTR));
         btnBack->setText(QApplication::translate("MainWindow", "BC", Q_NULLPTR));
@@ -945,5 +946,3 @@ namespace Ui {
 QT_END_NAMESPACE
 
 #endif // UI_MAINWINDOW_H
-
-

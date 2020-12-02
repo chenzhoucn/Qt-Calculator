@@ -3,6 +3,8 @@
 #include "qDebug"
 #include"QElapsedTimer"
 #include"QTime"
+
+#include <QMessageBox>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -47,16 +49,15 @@ void MainWindow::connectSlot(){
     connect(ui->btnEq,SIGNAL(clicked()),ui->curLabel,SLOT(autoAppend( )));
     connect(ui->btnSign,SIGNAL(clicked()),ui->curLabel,SLOT(autoAppend( )));
     connect(ui->btnPoint,SIGNAL(clicked()),ui->curLabel,SLOT(autoAppend( )));
-        connect(ui->btnClean,SIGNAL(clicked()),ui->curLabel,SLOT(autoAppend( )));
-        //2020年12月2日14:00:28
-                connect(ui->btnBack,SIGNAL(clicked()),ui->curLabel,SLOT(autoAppend( )));
-                        connect(ui->btnSqrt,SIGNAL(clicked()),ui->curLabel,SLOT(autoAppend( )));
-
+    connect(ui->btnClean,SIGNAL(clicked()),ui->curLabel,SLOT(autoAppend( )));
+    //2020年12月2日14:00:28
+    connect(ui->btnBack,SIGNAL(clicked()),ui->curLabel,SLOT(autoAppend( )));
+    connect(ui->btnSqrt,SIGNAL(clicked()),ui->curLabel,SLOT(autoAppend( )));
+    connect(ui->btnMod,SIGNAL(clicked()),ui->curLabel,SLOT(autoAppend( )));
+        connect(ui->btnSquare,SIGNAL(clicked()),ui->curLabel,SLOT(autoAppend( )));
+            connect(ui->btnReciprocal,SIGNAL(clicked()),ui->curLabel,SLOT(autoAppend( )));
+                connect(ui->btnSqrt,SIGNAL(clicked()),ui->curLabel,SLOT(autoAppend( )));
 }
-
-
-
-
 
 
 void MainWindow::on_btnNUM0_clicked()//向当前算式输入0
@@ -118,34 +119,56 @@ void MainWindow::on_btnEq_clicked()//计算当前算式 并且set去label
 {
     this->num1Double=this->num1.toDouble();
     this->num2Double=this->num2.toDouble();
-    ui->resultLabel->setText(this->num1+this->op+this->num2+'=');//得到结果
+
+   ui->resultLabel->setText(this->num1+this->op+this->num2+'=');//得到结果
+
+
+
     //根据运算符获得 结果 暂不运算符重载
     QString op=this->op;
     if(op=="+"){
-                this->calculationString=QString::number(this->num1Double+this->num2Double);
+        this->calculationString=QString::number(this->num1Double+this->num2Double);
     }
     else if(op=="-"){
-                this->calculationString=QString::number(this->num1Double-this->num2Double);
+        this->calculationString=QString::number(this->num1Double-this->num2Double);
     }
     else if(op=="*"){
         this->calculationString=QString::number(this->num1Double*this->num2Double);
     }
     else if(op=="/"){
-        this->calculationString=QString::number(this->num1Double/this->num2Double);
+
+        try {
+            if(this->num2Double==0)
+                throw QString("Division by zero condition!");
+                    this->calculationString=QString::number(this->num1Double/this->num2Double);
+        } catch (const QString error) {
+               QMessageBox().warning(this,error,error);
+               this->on_btnBack_clicked();
+        }
+
     }
+    else if(op=="%"){
+                this->calculationString=QString::number(this->num1.toInt()%this->num2.toInt());
+    }
+
+
 
     //清空运算符
     this->op="//";
+        this->opS="//";
 }
 
 void MainWindow::on_btnAdd_clicked()
 {
     //阻止无限输入加号
-    if(this->op=="//"){
-        this->op='+';
-        this->num1=ui->curLabel->text(); //保存 num1
-        this->calculationString.append(this->op);
+    this->op='+';
+    if(this->opPos==-1){
 
+        this->calculationString.append(this->op);
+    }
+    else{
+
+        this->calculationString.replace(this->opPos,1,this->op);
     }
 
 
@@ -153,36 +176,56 @@ void MainWindow::on_btnAdd_clicked()
 
 void MainWindow::on_btnSub_clicked()
 {
-    if(    this->op=="//"){//并且只允许存在一次
-
-        this->op='-';
-        this->num1=ui->curLabel->text();
+    this->op='-';
+    if(this->opPos==-1){//并且只允许存在一次
         this->calculationString.append(this->op);
     }
+    else{
+
+        this->calculationString.replace(this->opPos,1,this->op);
+    }
+
 
 }
 
 void MainWindow::on_btnMul_clicked()
 {
-    if(   this->op=="//"){
-
-        this->op='*';
-
-        this->num1=ui->curLabel->text();
+    this->op='*';
+    if(this->opPos==-1){
         this->calculationString.append(this->op);
-
     }
+    else{
+
+        this->calculationString.replace(this->opPos,1,this->op);
+    }
+
 
 }
 
 void MainWindow::on_btnDiv_clicked()
 {
-    if(   this->op=="//")
-    {   this->op='/';
 
-        this->num1=ui->curLabel->text();
+    this->op='/';
+    if(this->opPos==-1)
+    {
         this->calculationString.append(this->op);}
+    else{
 
+        this->calculationString.replace(this->opPos,1,this->op);
+    }
+
+
+}
+void MainWindow::on_btnMod_clicked()
+{
+    this->op='%';
+    if(this->opPos==-1)
+    {
+        this->calculationString.append(this->op);}
+    else{
+
+        this->calculationString.replace(this->opPos,1,this->op);
+    }
 }
 
 //自动识别 num1 num2
@@ -197,7 +240,7 @@ void MainWindow::on_curLabel_textChanged()
         if(this->num1.contains("-"))
             this->opPos=this->calculationString.indexOf(this->op,this->num1.size()); //寻找op位置
         else//否则num1不是负数,直接取第一个-就行
-           this->opPos=this->calculationString.indexOf(this->op); //寻找op位置
+            this->opPos=this->calculationString.indexOf(this->op); //寻找op位置
     }
     else
         this->opPos=this->calculationString.indexOf(this->op); //寻找op位置
@@ -212,17 +255,17 @@ void MainWindow::on_curLabel_textChanged()
     else{//只有Num1了
         this->num1=this->calculationString;
         this->curNum=this->num1;
-        this->num2="";
+        this->num2="0";
     }
     if (this->calculationString==""){ //clean行为
         ui->curLabel->setText("0");
     }
 
     ui->curLabel->setText(this->calculationString);
-           qDebug()<<"现在的op"<<this->opPos;
-       qDebug()<<"现在的算式是"<<this->calculationString;
-              qDebug()<<"现在的num1"<<this->num1;
-                     qDebug()<<"现在的num2"<<this->num2;
+    qDebug()<<"现在的ops"<<this->opPos;
+    qDebug()<<"现在的算式是"<<this->calculationString;
+    qDebug()<<"现在的num1"<<this->num1;
+    qDebug()<<"现在的num2"<<this->num2;
 
 }
 
@@ -230,8 +273,8 @@ void MainWindow::on_btnSign_clicked()
 {
     //获取当前输入的数字 再取反
 
-    if(this->num2==""){ //如果num2是空,代表此时只有num1
-      this->calculationString=QString::number(-this->calculationString.toDouble()); //直接算
+    if(this->opPos==-1){ //如果num2是空,代表此时只有num1
+        this->calculationString=QString::number(-this->calculationString.toDouble()); //直接算
     }
     else{//此时是num2,需要单独拉出来算
         this->calculationString=this->num1+this->op+QString::number(-this->num2.toDouble());
@@ -263,13 +306,15 @@ void MainWindow::on_btnPoint_clicked() //给当前加小数点,一个num只允�
 void MainWindow::on_btnSqrt_clicked() //为当前数值做一个开方运算 或者在有op之后做一个基于num1 的运算
 {
     //检测当前是不是num1 即当num2是空的时候
-    if(this->num2==""){
-//        将当前的数值开方
+    if(this->opPos==-1){//说明只有num1
+        //        将当前的数值开方
         this->calculationString=QString::number(sqrt(this->num1.toDouble()));
     }
     else{//否则将num2开方
-        this->calculationString=this->num1+this->op+QString::number(sqrt(this->num1.toDouble()));
+        this->calculationString=this->num1+this->op+QString::number(sqrt(this->num2.toDouble()));
     }
+          this->opS="½";
+   ui->resultLabel->setText(this->curNum+this->opS);//对num1
 }
 
 void MainWindow::on_btnClean_clicked() //  初始化
@@ -281,5 +326,48 @@ void MainWindow::on_btnClean_clicked() //  初始化
 
 void MainWindow::on_btnBack_clicked() //back退格
 {
-    this->calculationString=this->calculationString.remove(this->calculationString.size()-1,this->calculationString.size());
+    int size=this->calculationString.size();
+    qDebug()<<this->op<<"op";
+    this->calculationString=this->calculationString.remove(size-1,size);
+    //另一种版本
+    //    if(this->opPos==-1)//如果找不到op,说明可以随便删
+    //        this->calculationString=this->calculationString.remove(size-1,size);
+    //    else{
+    //        //如果找到了 只能删到op前面
+    //        if(size>this->opPos+1)
+    //            this->calculationString=this->calculationString.remove(size-1,size);
+    //    }
 }
+
+void MainWindow::on_btnSquare_clicked()
+{
+    if(this->opPos==-1){//说明只有num1
+        //        将当前的数值平方
+        this->calculationString=QString::number(pow(this->num1.toDouble(),2));
+    }
+    else{//否则将num2
+        this->calculationString=this->num1+this->op+QString::number(pow(this->num2.toDouble(),2));
+    }
+        this->opS="²";
+       ui->resultLabel->setText(this->curNum+this->opS);//对num1
+
+}
+
+void MainWindow::on_btnReciprocal_clicked()
+{
+    if(this->opPos==-1){//说明只有num1
+        //        将当前的数值倒数
+        this->calculationString=QString::number(1/this->num1.toDouble());
+    }
+    else{//否则将num2倒数
+        this->calculationString=this->num1+this->op+QString::number(1/this->num2.toDouble());
+    }
+    this->opS="^-1";
+
+   ui->resultLabel->setText(this->curNum+this->opS);//对num1
+
+}
+
+
+
+
