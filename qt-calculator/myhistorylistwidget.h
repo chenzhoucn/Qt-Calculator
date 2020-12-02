@@ -1,10 +1,7 @@
 #ifndef MYHISTORYLISTWIDGET_H
 #define MYHISTORYLISTWIDGET_H
 #include <QListWidget>
-
-namespace Ui {
-class MyHistoryListWidget;
-}
+#include<QListWidgetItem>
 
 class MyHistoryListWidget : public QListWidget
 {

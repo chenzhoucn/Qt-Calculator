@@ -35,7 +35,7 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_3;
     QSpacerItem *horizontalSpacer;
-    QPushButton *pushButton;
+    QPushButton *btnHistory;
     QVBoxLayout *verticalLayout_2;
     QLabel *resultLabel;
     autoLabel *curLabel;
@@ -111,15 +111,15 @@ public:
 
         horizontalLayout_2->addItem(horizontalSpacer);
 
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        btnHistory = new QPushButton(centralwidget);
+        btnHistory->setObjectName(QStringLiteral("btnHistory"));
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/imgsrc/his.svg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon1);
-        pushButton->setIconSize(QSize(32, 32));
-        pushButton->setFlat(true);
+        btnHistory->setIcon(icon1);
+        btnHistory->setIconSize(QSize(32, 32));
+        btnHistory->setFlat(true);
 
-        horizontalLayout_2->addWidget(pushButton);
+        horizontalLayout_2->addWidget(btnHistory);
 
 
         verticalLayout->addLayout(horizontalLayout_2);
@@ -902,7 +902,7 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
         label_3->setText(QApplication::translate("MainWindow", "Standard", Q_NULLPTR));
-        pushButton->setText(QString());
+        btnHistory->setText(QString());
         resultLabel->setText(QString());
         curLabel->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
         pushButton_11->setText(QApplication::translate("MainWindow", "MC", Q_NULLPTR));

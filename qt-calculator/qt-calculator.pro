@@ -17,14 +17,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     autolabel.cpp \
+    historydialog.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    myhistorylistwidget.cpp
 
 HEADERS += \
     autolabel.h \
-    mainwindow.h
+    historydialog.h \
+    mainwindow.h \
+    myhistorylistwidget.h
 
 FORMS += \
+    historydialog.ui \
     mainwindow.ui
 
 # Default rules for deployment.

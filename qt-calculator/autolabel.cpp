@@ -4,7 +4,6 @@ autoLabel::autoLabel(QWidget *parent,Qt::WindowFlags f):QLabel(parent)
 {
 
 }
-
 autoLabel::~autoLabel()
 {
 

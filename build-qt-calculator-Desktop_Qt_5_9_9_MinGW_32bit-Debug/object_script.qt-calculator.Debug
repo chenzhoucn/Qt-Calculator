@@ -1,0 +1,12 @@
+INPUT(
+./debug\autolabel.o
+./debug\historydialog.o
+./debug\main.o
+./debug\mainwindow.o
+./debug\myhistorylistwidget.o
+./debug\qrc_calculator.o
+./debug\moc_autolabel.o
+./debug\moc_historydialog.o
+./debug\moc_mainwindow.o
+./debug\moc_myhistorylistwidget.o
+);

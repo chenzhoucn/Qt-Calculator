@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include"myhistorylistwidget.h"
+#include<historydialog.h>
+#include<QDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,6 +18,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
 
     void connectSlot();
+    void initHistoryDialog();
     ~MainWindow();
 
 private slots:
@@ -65,18 +69,25 @@ private slots:
 
         void on_btnMod_clicked();
 
+
+
+        void on_btnHistory_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString calculationString;// 全局变量 记录用户的输入算式
-        QString num1;// 双目运算符的 第一个 数
-        QString num2;// 双目运算符的 第2个 数
-        QString curNum ; //记录当前的num
+    QString num1;// 双目运算符的 第一个 数
+    QString num2;// 双目运算符的 第2个 数
+    QString curNum ; //记录当前的num
 
-        double num1Double; //转化为整形
-        double num2Double;//整形
-        QString op="//" ;//运算符 +-*/% 用//代表没有op
-        QString opS="//";//单目运算符 例如 ~ sqrt pow
-        int opPos=-1;//运算符在算式的位置
+    double num1Double; //转化为整形
+    double num2Double;//整形
+    QString op="//" ;//运算符 +-*/% 用//代表没有op
+    QString opS="//";//单目运算符 例如 ~ sqrt pow
+    int opPos=-1;//运算符在算式的位置
+    HistoryDialog *myHistoryDialog;
+
+
 
 
 };

@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->connectSlot();
+    this->initHistoryDialog();
 }
 
 MainWindow::~MainWindow()
@@ -26,7 +27,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 //TODO 完善基本功能
-
+void MainWindow::initHistoryDialog(){
+     HistoryDialog *myHistoryDialog= new HistoryDialog(this);
+}
 
 //绑定信号与槽 利用自定义槽
 
@@ -120,7 +123,7 @@ void MainWindow::on_btnEq_clicked()//计算当前算式 并且set去label
     this->num1Double=this->num1.toDouble();
     this->num2Double=this->num2.toDouble();
 
-   ui->resultLabel->setText(this->num1+this->op+this->num2+'=');//得到结果
+    ui->resultLabel->setText(this->num1+this->op+this->num2+'=');//得到结果
 
 
 
@@ -152,10 +155,26 @@ void MainWindow::on_btnEq_clicked()//计算当前算式 并且set去label
     }
 
 
-
     //清空运算符
     this->op="//";
-        this->opS="//";
+    this->opS="//";
+
+    //每次运算后 加进历史记录
+    //创建一个简单的vbox布局
+    QVBoxLayout *layout=new QVBoxLayout(this->myHistoryDialog);
+    QLabel *l1,*l2;
+    l1->setText(ui->curLabel->text());
+    l1->setFont(ui->curLabel->font());
+
+    l2->setFont(ui->resultLabel->text());
+    l2->setFont(ui->resultLabel->font());
+    layout->addWidget(l2);
+    layout->addWidget(l1);
+    QListWidgetItem item;
+//    item.set
+//    this->myHistoryDialog->myListWidget->addItem()
+
+
 }
 
 void MainWindow::on_btnAdd_clicked()
@@ -369,5 +388,8 @@ void MainWindow::on_btnReciprocal_clicked()
 }
 
 
+void MainWindow::on_btnHistory_clicked() //打开历史记录
+{
 
 
+}
