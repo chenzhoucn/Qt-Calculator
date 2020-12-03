@@ -2,7 +2,7 @@
 #define HISTORYDIALOG_H
 
 #include <QDialog>
-#include<myhistorylistwidget.h>
+#include<historyscrollarea.h>
 
 namespace Ui {
 class HistoryDialog;
@@ -16,7 +16,10 @@ public:
     explicit HistoryDialog(QWidget *parent = nullptr);
     ~HistoryDialog();
     Ui::HistoryDialog *ui;
-    MyHistoryListWidget *myListWidget;
+    QWidget *myScrollAreaContents;
+    HistoryScrollArea *myScrollArea;
+
+
 };
 
 #endif // HISTORYDIALOG_H

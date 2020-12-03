@@ -19,15 +19,18 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
-#include <myhistorylistwidget.h>
+#include <QtWidgets/QWidget>
+#include <historyscrollarea.h>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_HistoryDialog
 {
 public:
+    QVBoxLayout *verticalLayout_2;
+    HistoryScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout;
-    MyHistoryListWidget *listWidget;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
     QPushButton *pushButton;
@@ -37,12 +40,25 @@ public:
         if (HistoryDialog->objectName().isEmpty())
             HistoryDialog->setObjectName(QStringLiteral("HistoryDialog"));
         HistoryDialog->resize(246, 395);
-        verticalLayout = new QVBoxLayout(HistoryDialog);
+        verticalLayout_2 = new QVBoxLayout(HistoryDialog);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        scrollArea = new HistoryScrollArea(HistoryDialog);
+        scrollArea->setObjectName(QStringLiteral("scrollArea"));
+        scrollArea->setFrameShape(QFrame::Panel);
+        scrollArea->setFrameShadow(QFrame::Raised);
+        scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        scrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 226, 343));
+        verticalLayout = new QVBoxLayout(scrollAreaWidgetContents);
+        verticalLayout->setSpacing(0);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        listWidget = new MyHistoryListWidget(HistoryDialog);
-        listWidget->setObjectName(QStringLiteral("listWidget"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        scrollArea->setWidget(scrollAreaWidgetContents);
 
-        verticalLayout->addWidget(listWidget);
+        verticalLayout_2->addWidget(scrollArea);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -60,7 +76,7 @@ public:
         horizontalLayout->addWidget(pushButton);
 
 
-        verticalLayout->addLayout(horizontalLayout);
+        verticalLayout_2->addLayout(horizontalLayout);
 
 
         retranslateUi(HistoryDialog);

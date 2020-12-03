@@ -1,12 +1,12 @@
 INPUT(
 ./release\autolabel.o
 ./release\historydialog.o
+./release\historyscrollarea.o
 ./release\main.o
 ./release\mainwindow.o
-./release\myhistorylistwidget.o
 ./release\qrc_calculator.o
 ./release\moc_autolabel.o
 ./release\moc_historydialog.o
+./release\moc_historyscrollarea.o
 ./release\moc_mainwindow.o
-./release\moc_myhistorylistwidget.o
 );

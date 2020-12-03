@@ -10,6 +10,5 @@ int main(int argc, char *argv[])
     w.setWindowTitle("No Tension");
 //      w.setWindowFlag(Qt::FramelessWindowHint);
     w.show();
-    w2.show();
     return a.exec();
 }

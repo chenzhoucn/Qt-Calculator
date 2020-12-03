@@ -5,6 +5,7 @@
 #include"QTime"
 
 #include <QMessageBox>
+#include <QPropertyAnimation>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -28,7 +29,13 @@ MainWindow::~MainWindow()
 }
 //TODO 完善基本功能
 void MainWindow::initHistoryDialog(){
-     HistoryDialog *myHistoryDialog= new HistoryDialog(this);
+     this->myHistoryDialog= new HistoryDialog(this);
+
+     myHistoryDialog->setFixedWidth(this->width());
+     myHistoryDialog->setFixedHeight(this->height());
+     myHistoryDialog->setWindowTitle("Histroy");
+
+//     myHistoryDialog->setWindowFlag(Qt::FramelessWindowHint);
 }
 
 //绑定信号与槽 利用自定义槽
@@ -161,18 +168,22 @@ void MainWindow::on_btnEq_clicked()//计算当前算式 并且set去label
 
     //每次运算后 加进历史记录
     //创建一个简单的vbox布局
-    QVBoxLayout *layout=new QVBoxLayout(this->myHistoryDialog);
-    QLabel *l1,*l2;
-    l1->setText(ui->curLabel->text());
-    l1->setFont(ui->curLabel->font());
+    QWidget *resultWidget=new QWidget();
+    QVBoxLayout *layout=new QVBoxLayout();
+    QLabel *l1=new QLabel(),*l2=new QLabel();
+    l1->setText(ui->resultLabel->text());
+    l1->setFont(ui->resultLabel->font());
 
-    l2->setFont(ui->resultLabel->text());
-    l2->setFont(ui->resultLabel->font());
-    layout->addWidget(l2);
+    l2->setText(this->calculationString);
+    l2->setFont(ui->curLabel->font());
     layout->addWidget(l1);
-    QListWidgetItem item;
-//    item.set
-//    this->myHistoryDialog->myListWidget->addItem()
+    layout->addWidget(l2);
+    resultWidget->setLayout(layout);
+    layout->setSpacing(10);
+
+    this->myHistoryDialog->myScrollArea->widget()->layout()->addWidget(resultWidget);
+
+
 
 
 }
@@ -390,6 +401,13 @@ void MainWindow::on_btnReciprocal_clicked()
 
 void MainWindow::on_btnHistory_clicked() //打开历史记录
 {
-
+    //动画,从底下上升
+    this->myHistoryDialog->setVisible(1);
+    QPropertyAnimation *dialogAnimation=new QPropertyAnimation(this->myHistoryDialog,"geometry");
+    dialogAnimation->setDuration(600);
+    dialogAnimation->setStartValue(QRect(this->mapToGlobal(QPoint(0,0)).x(),this->mapToGlobal(QPoint(0,0)).y(),0,this->myHistoryDialog->height()));
+    dialogAnimation->setEndValue(QRect(this->mapToGlobal(QPoint(0,0)).x()+this->width(),this->mapToGlobal(QPoint(0,0)).y(),this->myHistoryDialog->width(),this->myHistoryDialog->height()));
+    dialogAnimation->start();
+//    this->myHistoryDialog->exec();
 
 }

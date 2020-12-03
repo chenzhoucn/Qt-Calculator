@@ -18,15 +18,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     autolabel.cpp \
     historydialog.cpp \
+    historyscrollarea.cpp \
     main.cpp \
-    mainwindow.cpp \
-    myhistorylistwidget.cpp
+    mainwindow.cpp
 
 HEADERS += \
     autolabel.h \
     historydialog.h \
-    mainwindow.h \
-    myhistorylistwidget.h
+    historyscrollarea.h \
+    mainwindow.h
 
 FORMS += \
     historydialog.ui \
